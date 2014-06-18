@@ -3,11 +3,6 @@
 // in the webfont.js loader in index.html
 */
 
-@font-face {
-	font-family: 'itcfranklingothicbook' ;
-	src: url('https://github.com/carolchennn/Chartbuilder/blob/gh-pages/fonts/itc-franklin-gothic-book.ttf') format('truetype');
-}
-
 svg {
 	font-size: 14px;
 }
@@ -45,7 +40,7 @@ svg .axis path {
 }
 
 svg .axis text {
-	font-family: 'itcfranklingothicbook', Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
 }
 
 svg .legendItem text {
