@@ -40,7 +40,7 @@ svg .axis path {
 }
 
 svg .axis text {
-	font-family: 'Franklin Gothic Demi Condensed', Helvetica, sans-serif;
+	font-family: 'franklin_gothic_fsdemi', Helvetica, sans-serif;
 }
 
 svg .legendItem text {
