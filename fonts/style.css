@@ -21,9 +21,3 @@ font-style: normal;
 font-weight: normal;
 src: local('Franklin Gothic Demi Condensed'), url('CONDENSED.ttf') format('truetype');
 }
-@font-face {
-font-family: 'Franklin Gothic Demi Condensed';
-font-style: normal;
-font-weight: normal;
-src: local('Franklin Gothic Demi Condensed'), url('CONDENSED.ttf') format('truetype');
-}
