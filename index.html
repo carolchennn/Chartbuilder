@@ -185,6 +185,21 @@
 		<!-- Chartbuilder JS -->
 		<script src="js/gneisschart.js" charset="utf-8"></script>
 		<script src="js/chartbuilder.js"></script>
+		
+				
+		<script type="text/javascript">
+
+		//This loads the webfonts and starts Chartbuilder once they're present
+		WebFont.load({
+		    active: function(name) {
+		        $(document).ready(function() {
+		            ChartBuilder.start();
+		        });
+		    }
+		});
+
+		</script>
+
 
 	</body>
 </html>
