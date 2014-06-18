@@ -16,8 +16,8 @@ src: local('Franklin Gothic Book Italic'), url('FRABKIT.woff') format('woff');
 }
 
 @font-face {
-font-family: 'Franklin Gothic Demi Condensed';
+font-family: 'Franklin Gothic Demi Cond';
 font-style: normal;
 font-weight: normal;
-src: local('Franklin Gothic Demi Condensed'), url('CONDENSED.ttf') format('truetype');
+src: local('Franklin Gothic Demi Cond'), url('Franklin Gothic Demi Cond Regular.woff') format('woff');
 }
