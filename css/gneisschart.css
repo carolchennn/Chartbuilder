@@ -20,7 +20,7 @@ src: local('Franklin Gothic Book Italic'), url('fonts/FRABKIT.woff') format('wof
 @font-face {
 font-family: 'Franklin Gothic Demi Cond';
 font-style: normal;
-font-weight: bolder;
+font-weight: normal;
 src: local('Franklin Gothic Demi Cond'), url('fonts/FGDCD.woff') format('woff');
 }
 
