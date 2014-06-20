@@ -120,9 +120,7 @@ table {
 	border: 1px solid #efefef;
 }
 
-#interactiveContent svg .legendItem text {
-	cursor: move;
-}
+
 
 #canvas, #favicanvas {
 	display: none;
