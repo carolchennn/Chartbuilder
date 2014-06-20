@@ -84,6 +84,7 @@ svg text.barLabel,
 svg text.bargridLabel {
 	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
 	font-weight: bolder;
+	text-transform: uppercase;
 }
 
 /*Default styling of series*/
