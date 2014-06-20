@@ -7,7 +7,7 @@
 font-family: 'Franklin Gothic Book';
 font-style: normal;
 font-weight: normal;
-src: local('Franklin Gothic Book'), url('FRABK.woff') format('woff');
+src: local('Franklin Gothic Book'), url('fonts/FRABK.woff') format('woff');
 }
 
 
@@ -15,14 +15,14 @@ src: local('Franklin Gothic Book'), url('FRABK.woff') format('woff');
 font-family: 'Franklin Gothic Book Italic';
 font-style: normal;
 font-weight: normal;
-src: local('Franklin Gothic Book Italic'), url('FRABKIT.woff') format('woff');
+src: local('Franklin Gothic Book Italic'), url('fonts/FRABKIT.woff') format('woff');
 }
 
 @font-face {
 font-family: 'Franklin Gothic Demi Cond';
 font-style: normal;
 font-weight: normal;
-src: local('Franklin Gothic Demi Cond'), url('Franklin Gothic Demi Cond Regular.woff') format('woff');
+src: local('Franklin Gothic Demi Cond'), url('fonts/Franklin Gothic Demi Cond Regular.woff') format('woff');
 }
 
 svg {
