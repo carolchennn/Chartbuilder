@@ -61,7 +61,7 @@ svg .axis path {
 }
 
 svg .axis text {
-	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
+	font-family: Times, Helvetica, sans-serif;
 	text-transform: uppercase;
 	font-weight:bolder;
 }
