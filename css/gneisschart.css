@@ -7,7 +7,11 @@
 font-family: 'Franklin Gothic Book';
 font-style: normal;
 font-weight: normal;
+<<<<<<< HEAD
 src: local('Franklin Gothic Book'), url('FRABK.woff') format('woff');
+=======
+src: local('Franklin Gothic Book'), url('fonts/FRABK.woff') format('woff');
+>>>>>>> FETCH_HEAD
 }
 
 
@@ -15,14 +19,22 @@ src: local('Franklin Gothic Book'), url('FRABK.woff') format('woff');
 font-family: 'Franklin Gothic Book Italic';
 font-style: normal;
 font-weight: normal;
+<<<<<<< HEAD
 src: local('Franklin Gothic Book Italic'), url('FRABKIT.woff') format('woff');
+=======
+src: local('Franklin Gothic Book Italic'), url('fonts/FRABKIT.woff') format('woff');
+>>>>>>> FETCH_HEAD
 }
 
 @font-face {
 font-family: 'Franklin Gothic Demi Cond';
 font-style: normal;
 font-weight: normal;
+<<<<<<< HEAD
 src: local('Franklin Gothic Demi Cond'), url('FGDCD.woff') format('woff');
+=======
+src: local('Franklin Gothic Demi Cond'), url('fonts/Franklin Gothic Demi Cond Regular.woff') format('woff');
+>>>>>>> FETCH_HEAD
 }
 
 svg {
@@ -62,25 +74,27 @@ svg .axis path {
 }
 
 svg .axis text {
-	font-family: 'Franklin Gothic Demi', Helvetica, sans-serif;
-	font-weight: bolder;
+	font-family: 'Franklin Gothic Demi Cond';
 	text-transform: uppercase;
 }
 
 svg .legendItem text {
-	font-family: 'Franklin Gothic Demi', Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
+	font-weight: bolder;
 }
 
 svg text.metaText {
-	font-family: 'Franklin Gothic Demi', Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
 	font-size:  10px;
+	font-weight: bolder;
 	text-rendering:   optimizeLegibility;
 	fill:  #999999;
 }
 
 svg text.barLabel, 
 svg text.bargridLabel {
-	font-family: 'Franklin Gothic Demi', Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
+	font-weight: bolder;
 }
 
 /*Default styling of series*/
@@ -98,7 +112,7 @@ svg .seriesScatter circle {
 }
 	
 #titleLine {
-	font-family: 'Franklin Gothic Demi', Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
 	font-weight: bolder;
 	text-transform: uppercase;
 	fill: #666666;
