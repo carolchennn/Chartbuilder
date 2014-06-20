@@ -20,7 +20,7 @@ src: local('Franklin Gothic Book Italic'), url('fonts/FRABKIT.woff') format('wof
 @font-face {
 font-family: 'Franklin Gothic Demi Cond';
 font-style: normal;
-font-weight: bold;
+font-weight: bolder;
 src: local('Franklin Gothic Demi Cond'), url('fonts/FGDCD.woff') format('woff');
 }
 
@@ -63,6 +63,7 @@ svg .axis path {
 svg .axis text {
 	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
 	text-transform: uppercase;
+	font-weight:bolder;
 }
 
 svg .legendItem text {
