@@ -1068,7 +1068,7 @@ ChartBuilder.start = function(config) {
 		chart.titleElement().text(chart.title());
 	});
 	
-	$(".downloadLink").click(function() {
+	$(".downloadLinks").click(function() {
 		$("#downloadLinksDiv").toggleClass("hide");
 	});
 
