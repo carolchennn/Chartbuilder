@@ -3,6 +3,28 @@
 // in the webfont.js loader in index.html
 */
 
+@font-face {
+font-family: 'Franklin Gothic Book';
+font-style: normal;
+font-weight: normal;
+src: local('Franklin Gothic Book'), url('FRABK.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'Franklin Gothic Book Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Franklin Gothic Book Italic'), url('FRABKIT.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Franklin Gothic Demi Cond';
+font-style: normal;
+font-weight: normal;
+src: local('Franklin Gothic Demi Cond'), url('FGDCD.woff') format('woff');
+}
+
 svg {
 	font-size: 14px;
 }
