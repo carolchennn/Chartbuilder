@@ -40,7 +40,7 @@ svg .axis path {
 }
 
 svg .axis text {
-	font-family: Franklin Gothic Demi Cond;
+	font-family: 'Franklin Gothic Demi Cond';
 	text-transform: uppercase;
 }
 
