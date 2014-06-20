@@ -120,6 +120,11 @@ table {
 	border: 2px solid #efefef;
 }
 
+#ALMlogo {
+	width:80%;
+	height:80%;
+}
+
 #interactiveContent svg .legendItem text {
 	cursor: move;
 }
