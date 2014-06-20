@@ -295,11 +295,11 @@ ChartBuilder = {
 	createChartImage: function() {
 		// Create PNG image
 		var canvas = document.getElementById("canvas");
-		canvas.width = $("#chartbigcontainer").width() * 2;
-		canvas.height = $("#chartbigcontainer").height() *2;
+		canvas.width = $("#chartbigContainer").width() * 2;
+		canvas.height = $("#chartbigContainer").height() *2;
 
 		var canvasContext = canvas.getContext("2d");
-		var svg = $.trim(document.getElementById("chartbigcontainer").innerHTML);
+		var svg = $.trim(document.getElementById("chartbigContainer").innerHTML);
 		canvasContext.drawSvg(svg,0,0);
 		
 		
@@ -407,7 +407,7 @@ ChartBuilder = {
 		var faviCanvasContext = favicanvas.getContext("2d");
 		faviCanvasContext.translate(favicanvas.width / 2, favicanvas.height / 2);
 		
-		var svg = $.trim(document.getElementById("chartbigcontainer").innerHTML);
+		var svg = $.trim(document.getElementById("chartbigContainer").innerHTML);
 		faviCanvasContext.drawSvg(svg,-16,-8,32,32);
 		
 		var icon = favicanvas.toDataURL("png");
