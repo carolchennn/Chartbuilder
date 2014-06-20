@@ -22,7 +22,6 @@ src: local('Franklin Gothic Book Italic'), url('FRABKIT.woff') format('woff');
 font-family: 'Franklin Gothic Demi Cond';
 font-style: normal;
 font-weight: normal;
-<<<<<<< HEAD
 src: local('Franklin Gothic Demi Cond'), url('Franklin Gothic Demi Cond Regular.woff') format('woff');
 }
 
