@@ -116,8 +116,8 @@ table {
 
 #chartContainer {
 	width: 600px;
-	height: 388px;
-	border: 1px solid #efefef;
+	height: 400px;
+	border: 2px solid #efefef;
 }
 
 #interactiveContent svg .legendItem text {
