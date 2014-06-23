@@ -1797,7 +1797,7 @@ function Gneiss(config)
  +					.data(function(d){return d.data})
  +					.enter()
  +					.append("text")
- +					.text(function(d){return d})
+ +					.text(function(d,i){return d})
  +					.attr("text-anchor","middle")
  +					.attr("x",g.xAxis().type =="date" ? 
  +							function(d,i) {return g.xAxis().scale(g.xAxisRef()[0].data[i])}:
