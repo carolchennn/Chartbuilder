@@ -77,15 +77,17 @@ svg text.metaText {
 	fill:  #999999;
 }
 
-svg text.barLabel, 
 svg text.bargridLabel {
 	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
 	text-transform: uppercase;
 }
 
+svg text.barLabel {
+	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
+}
+
 svg text.columnLabel {
         font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
-	text-transform: uppercase;	
 }
 
 /*Default styling of series*/
