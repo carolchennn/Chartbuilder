@@ -1,3 +1,6 @@
+//test change
+
+
 var chart;
 ChartBuilder = {
 	allColors: ["BF0053","FF70B0","E15D98","C44B81","A63869","882551","6B133A","4D0022",
@@ -292,16 +295,25 @@ ChartBuilder = {
 
 		return output;
 	},
+    
+    
+    
 	createChartImage: function() {
-		// Create PNG image
-		var canvas = document.getElementById("canvas");
-		canvas.width = $("#chartbigContainer").width() * 2;
-		canvas.height = $("#chartbigContainer").height() *2;
+        var callback_flag = false;
+        console.log("test");
+        
+        var canvas = document.getElementById("canvas");
+		canvas.width = $("#chartContainer").width() * 2;
+		canvas.height = $("#chartbigContainer").height()* 2 + 65;
+        var canvasContext = canvas.getContext("2d");
 
-		var canvasContext = canvas.getContext("2d");
-		var svg = $.trim(document.getElementById("chartbigContainer").innerHTML);
-		canvasContext.drawSvg(svg,0,0);
-		
+        var svg = $.trim(document.getElementById("chartContainer").innerHTML);
+        var svg1 = $.trim(document.getElementById("chartContainer").innerHTML);
+        var logo = document.getElementById("ALMlogo");
+        canvasContext.drawImage(logo,0,0);
+        var height = $("#ALMlogo").height()* 2
+		canvasContext.drawSvg(svg,0,65);
+
 		
 		var filename = [];
 		for (var i=0; i < chart.series().length; i++) {
@@ -313,32 +325,31 @@ ChartBuilder = {
 		}
 		
 		filename = filename.join("-").replace(/[^\w\d]+/gi, '-');
-		
-		
-		$("#downloadImageLink").attr("href",canvas.toDataURL("png"))
-			.attr("download",function(){ return filename + "_chartbuilder.png";
-			});
-			
-			
+
 		var svgContent = this.createSVGContent(document.getElementById("chart"));
-		
+
+        $("#downloadImageLink").attr("href",canvas.toDataURL("png"))
+        .attr("download",function(){ return filename + "_chartbuilder.png";
+              });
+
 		$("#downloadSVGLink").attr("href","data:text/svg,"+ svgContent.source[0])
-			.attr("download",function(){ return filename + "_chartbuilder.svg";});
-
-			var icon = this.setFavicon();
-			this.storeLocalChart(filename);
-
+        .attr("download",function(){ return filename + "_chartbuilder.svg";});
+        
+        
+        var icon = this.setFavicon();
+        this.storeLocalChart(filename);
+        
 		if(!(/Apple/).test(navigator.vendor)) {
 			//blobs dont work in Safari so don't use that method
-
+            
 			var link = document.getElementById('downloadImageLink');
 			var base64 = canvas.toDataURL("png").split(",")[1];
 			var bytes = window.atob(base64);
 			var ui8a = new Uint8Array(bytes.length);
-
+            
 			for (var i = 0; i < bytes.length; i++)
 				ui8a[i] = bytes[i].charCodeAt(0);
-
+            
 			var blob = new Blob([ui8a], { type: 'image/png' });
 			var url = URL.createObjectURL(blob);
 			link.href = url;
@@ -347,9 +358,11 @@ ChartBuilder = {
 			blob = new Blob(svgContent.source, { type: '"text\/xml"' });
 			url = URL.createObjectURL(blob);
 			link.href = url;
-		}
-		
-	},
+        }
+           },
+    
+    
+    
 	createSVGContent: function(svg) {
 		/*
 			Copyright (c) 2013 The New York Times
@@ -396,6 +409,9 @@ ChartBuilder = {
 
 		var source = (new XMLSerializer()).serializeToString(svg).replace('</style>', '<![CDATA[' + styles + ']]></style>');
 
+        
+        
+
 		return {svg: svg, source: [doctype + source]};
 	},
 	setFavicon: function() {
@@ -407,7 +423,7 @@ ChartBuilder = {
 		var faviCanvasContext = favicanvas.getContext("2d");
 		faviCanvasContext.translate(favicanvas.width / 2, favicanvas.height / 2);
 		
-		var svg = $.trim(document.getElementById("chartbigContainer").innerHTML);
+		var svg = $.trim(document.getElementById("chartContainer").innerHTML);
 		faviCanvasContext.drawSvg(svg,-16,-8,32,32);
 		
 		var icon = favicanvas.toDataURL("png");
@@ -847,7 +863,29 @@ ChartBuilder.start = function(config) {
 		ChartBuilder.inlineAllStyles();
 
 		if($("#downloadLinksDiv").hasClass("hide")) {
-			ChartBuilder.createChartImage();
+                                  
+                                  
+                                  html2canvas(document.getElementById("chartbigContainer"), {
+                                              onrendered: function(tempcanvas) {
+                                              var can = document.createElement('canvas');
+                                              can.width = $("#chartbigContainer").width() * 2;
+                                              can.height = $("#chartbigContainer").height() * 4;
+                                              var ctx = can.getContext('2d');
+                                              var framecontent = tempcanvas.getContext("2d");
+                                              
+                                              var canvas1 = document.getElementById("canvas");
+                                              canvas1.width = $("#chartContainer").width() * 2;
+                                              canvas1.height = $("#chartContainer").height() *4;
+                                              var canvasContext1 = canvas1.getContext("2d");
+                                            
+                                              console.log("callback");
+                                              callback_flag = true;
+                                              
+                                              ChartBuilder.createChartImage(); // this is where shit happened
+                                                }
+                                              });
+           
+                                  
 		}
 		$("#downloadLinksDiv").toggleClass("hide");
 	});
@@ -1068,12 +1106,14 @@ ChartBuilder.start = function(config) {
 		chart.titleElement().text(chart.title());
 	});
 	
-	$(".downloadLinks").click(function() {
+	$(".downloadLink").click(function() {
 		$("#downloadLinksDiv").toggleClass("hide");
 	});
 
 	//store the decimal and thousands separators
 	ChartBuilder.separators = ChartBuilder.determineLocaleNumberSeps();
+                    
+                    
 
   });
 };
