@@ -1531,49 +1531,21 @@ function Gneiss(config)
 							})
 						.attr("y",function(d,i) {yAxisIndex = d3.select(this.parentNode).data()[0].axis; return (g.yAxis()[yAxisIndex].scale(d)-g.yAxis()[yAxisIndex].scale(Gneiss.helper.columnXandHeight(d,g.yAxis()[yAxisIndex].scale.domain()))) >= 0 ? g.yAxis()[yAxisIndex].scale(Gneiss.helper.columnXandHeight(d,g.yAxis()[yAxisIndex].scale.domain())) : g.yAxis()[yAxisIndex].scale(d)})
 				
-								//add label to each column
-				var columnLabels = columnGroups.selectAll("text.columnLabel")
-					.data(function(d,i){return d.data});
+					columnRects.exit().remove()
+				//add labels to columns
+ +				columnGroups.selectAll("text")
+ +					.data(function(d){return d.data})
+ +					.enter()
+ +					.append("text")
+ +					.text(function(d){return d})
+ +					.attr("text-anchor","middle")
+ +					.attr("x",g.xAxis().type =="date" ? 
+ +							function(d,i) {return g.xAxis().scale(g.xAxisRef()[0].data[i])}:
+ +							function(d,i) {return g.xAxis().scale(i)}
+ +					)
+ +					.attr("y", function(d,i) {yAxisIndex = d3.select(this.parentNode).data()[0].axis; return d || d ===0 ? g.yAxis()[yAxisIndex].scale(d) : -100})
+ +
 
-				columnLabels.enter()
-					.append("text")
-					.attr("class","columnLabel")
-
-				//update the text in each label
-				//if it's the top label add the prefix and suffix
-				columnLabels.text(function(d,i){
-					var yAxisIndex = d3.select(this.parentNode).data()[0].axis;
-					var output = g.numberFormat(d);
-					if((i==0 && g.yAxis()[yAxisIndex].prefix.use == "top") || g.yAxis()[yAxisIndex].prefix.use == "all") {
-						output = g.yAxis()[yAxisIndex].prefix.value + output;
-					}
-					else if (g.yAxis()[yAxisIndex].prefix.use == "positive" && d > 0){
-						output = g.yAxis()[yAxisIndex].prefix.value + output;
-					}
-					else if (g.yAxis()[yAxisIndex].prefix.use == "top" && i == 0) {
-						output = g.yAxis()[yAxisIndex].prefix.value + output;
-					}
-					if((i==0 && g.yAxis()[yAxisIndex].suffix.use == "top") || g.yAxis()[yAxisIndex].suffix.use == "all") {
-						output += g.yAxis()[yAxisIndex].suffix.value;
-					}
-					else if (g.yAxis()[yAxisIndex].suffix.use == "positive" && d > 0){
-						output += g.yAxis()[yAxisIndex].suffix.value;
-					}
-					else if (g.yAxis()[yAxisIndex].suffix.use == "top" && i == 0) {
-						output += g.yAxis()[yAxisIndex].suffix.value;
-					}
-
-					return output;
-
-				})
-				
-				columnLabels.transition()
-					.attr("x", function(d,i) {
-						return x = g.xAxis().scale(g.xAxisRef()[0].data[i])  - columnWidth/2
-						}
-					.attr("y",function(d,i) {return (g.yAxis()[yAxisIndex].scale(d)-g.yAxis()[yAxisIndex].scale(Gneiss.helper.columnXandHeight(d,g.yAxis()[yAxisIndex].scale.domain()))) >= 0 ? g.yAxis()[yAxisIndex].scale(Gneiss.helper.columnXandHeight(d,g.yAxis()[yAxisIndex].scale.domain())) : g.yAxis()[yAxisIndex].scale(d)})
-				
-								
 				
 				//add lines to chart
 				lineSeries.data(sbt.line)
