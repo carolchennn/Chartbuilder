@@ -83,6 +83,11 @@ svg text.bargridLabel {
 	text-transform: uppercase;
 }
 
+svg text.columnLabel {
+        font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
+	text-transform: uppercase;	
+}
+
 /*Default styling of series*/
 
 svg path.seriesLine {
