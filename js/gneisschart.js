@@ -1530,6 +1530,19 @@ function Gneiss(config)
 							return g.xAxis().scale(g.xAxisRef()[0].data[i])  - columnWidth/2
 							})
 						.attr("y",function(d,i) {yAxisIndex = d3.select(this.parentNode).data()[0].axis; return (g.yAxis()[yAxisIndex].scale(d)-g.yAxis()[yAxisIndex].scale(Gneiss.helper.columnXandHeight(d,g.yAxis()[yAxisIndex].scale.domain()))) >= 0 ? g.yAxis()[yAxisIndex].scale(Gneiss.helper.columnXandHeight(d,g.yAxis()[yAxisIndex].scale.domain())) : g.yAxis()[yAxisIndex].scale(d)})
+ 
+                                   //add labels to columns
+ +				columnGroups.selectAll("text")
+ +					.data(function(d){return d.data})
+ +					.enter()
+ +					.append("text")
+ +					.text(function(d){return d})
+ +					.attr("text-anchor","middle")
+ +					.attr("x",g.xAxis().type =="date" ? 
+ +							function(d,i) {return g.xAxis().scale(g.xAxisRef()[0].data[i])}:
+ +							function(d,i) {return g.xAxis().scale(i)}
+ +					)
+ +					.attr("y", function(d,i) {yAxisIndex = d3.select(this.parentNode).data()[0].axis; return d || d ===0 ? g.yAxis()[yAxisIndex].scale(d) : -100})
 
 
 				//add lines to chart
