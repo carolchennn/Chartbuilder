@@ -1792,19 +1792,19 @@ function Gneiss(config)
 
 				columnRects.exit().remove()
 
- +				//add labels to columns
- +				columnGroups.selectAll("text")
- +					.data(function(d){return d.data})
- +					.enter()
- +					.append("text")
- +					.text(function(d){return d})
- +					.attr("text-anchor","middle")
- +					.attr("x",g.xAxis().type =="date" ? 
- +							function(d,i) {return g.xAxis().scale(g.xAxisRef()[0].data[i])}:
- +							function(d,i) {return g.xAxis().scale(i)}
- +					)
- +					.attr("y", function(d,i) {yAxisIndex = d3.select(this.parentNode).data()[0].axis; return d || d ===0 ? g.yAxis()[yAxisIndex].scale(d) : -100})
- +
+ 				//add labels to columns
+ 				columnGroups.selectAll("text")
+ 					.data(function(d){return d.data})
+ 					.enter()
+ 					.append("text")
+ 					.text(function(d){return d})
+ 					.attr("text-anchor","middle")
+ 					.attr("x",g.xAxis().type =="date" ? 
+ 							function(d,i) {return g.xAxis().scale(g.xAxisRef()[0].data[i])}:
+ 							function(d,i) {return g.xAxis().scale(i)}
+ 					)
+ 					.attr("y", function(d,i) {yAxisIndex = d3.select(this.parentNode).data()[0].axis; return d || d ===0 ? g.yAxis()[yAxisIndex].scale(d) : -100})
+ 
   		
 				//add lines
 				lineSeries = g.seriesContainer.selectAll("path")
@@ -1863,19 +1863,19 @@ function Gneiss(config)
 						})
 
 				lineSeriesDots.exit().remove()
-+
- +
- +				//add labels to data points
- +				lineSeriesDotGroups.selectAll("text")
- +					.data(function(d,i){return d.data})
- +					.enter()
- +					.append("text")
- +					.text(function(d){return d})
- +					.attr("transform",function(d,i){
- +						yAxisIndex = d3.select(this.parentNode).data()[0].axis;
- +							var y = d || d ===0 ? g.yAxis()[yAxisIndex].scale(d) : -100;
- +							return "translate("+ g.xAxis().scale(g.xAxisRef()[0].data[i]) + "," + y + ")";
- +						})
+
+ 
+ 				//add labels to data points
+ 				lineSeriesDotGroups.selectAll("text")
+ 					.data(function(d,i){return d.data})
+ 					.enter()
+ 					.append("text")
+ 					.text(function(d){return d})
+ 					.attr("transform",function(d,i){
+ 						yAxisIndex = d3.select(this.parentNode).data()[0].axis;
+ 							var y = d || d ===0 ? g.yAxis()[yAxisIndex].scale(d) : -100;
+ 							return "translate("+ g.xAxis().scale(g.xAxisRef()[0].data[i]) + "," + y + ")";
+ 						})
  
 				//add scatter
 				scatterGroups = g.seriesContainer.selectAll("g.seriesScatter")
