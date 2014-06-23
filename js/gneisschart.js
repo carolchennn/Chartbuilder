@@ -1566,6 +1566,33 @@ function Gneiss(config)
 					return output;
 
 				})
+				
+				columnLabels.transition()
+					.attr("x", function(d,i) {
+						var yAxisIndex = d3.select(this.parentNode).data()[0].axis,
+						x = g.yAxis()[yAxisIndex].scale(0) - (d<0?Math.abs(g.yAxis()[yAxisIndex].scale(d) - g.yAxis()[yAxisIndex].scale(0)):0) + Math.abs(g.yAxis()[yAxisIndex].scale(d) - g.yAxis()[yAxisIndex].scale(0)),
+						bbox = this.getBBox()
+						parentCoords = Gneiss.helper.transformCoordOf(d3.select(this.parentNode))
+						if (x + bbox.width + parentCoords.x > g.width()) {
+							//the label will fall off the edge and thus the chart needs more padding
+							if(bbox.width + g.defaultPadding().right < (g.width()-g.padding().left)/g.series.length) {
+								//add more padding if there is room for it
+								g.padding().right = bbox.width + g.defaultPadding().right
+								g.redraw()
+							}
+
+						}
+						else if (x + bbox.width + parentCoords.x < g.width() - 20){
+							//if there is too much left over space (typically caused by deleting a prefix or suffix) reset the padding
+							g.padding().right = g.defaultPadding().right;
+							g.redraw
+						}
+
+
+						return x
+					})
+					.attr("y",function(d,i) {return g.xAxis().scale(g.xAxisRef()[0].data[i]) + d3.select(this)[0][0].getBoundingClientRect().height/4})
+				
 								
 				
 				//add lines to chart
