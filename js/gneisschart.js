@@ -1794,7 +1794,7 @@ function Gneiss(config)
 
  +				//add labels to columns
  +				columnGroups.selectAll("text")
- +					.data(function(d,i){return d.data})
+ +					.data(function(d){return d.data})
  +					.enter()
  +					.append("text")
  +					.text(function(d){return d})
