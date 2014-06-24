@@ -858,6 +858,14 @@ ChartBuilder.start = function(config) {
 			.append("option")
 			.text(function(d){return d.name?d.name:"Untitled Chart";});
 			
+      function flip() {
+          ALMlogo.src = ColorSelect.children[ColorSelect.selectedIndex].getAttribute('url');
+      }
+      
+      var myimage = document.getElementById('ALMlogo');
+      var ColorSelect= document.getElementById('ColorSelect');
+	
+	
 	
 	$("#createImageButton").click(function() {
 		ChartBuilder.inlineAllStyles();
