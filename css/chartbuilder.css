@@ -114,15 +114,25 @@ table {
 	margin-top: 0.5;
 }
 
+#chartbigContainer {
+	width:600px;
+	height:380px;
+	border:3px solid #efefef;
+}
+
 #chartContainer {
 	width: 600px;
-	height: 338px;
-	border: 1px solid #efefef;
+	height: 340px;
+}
+
+#ALMlogo {
+	width:100%;
 }
 
 #interactiveContent svg .legendItem text {
 	cursor: move;
 }
+
 
 #canvas, #favicanvas {
 	display: none;

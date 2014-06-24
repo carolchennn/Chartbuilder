@@ -3,6 +3,27 @@
 // in the webfont.js loader in index.html
 */
 
+@font-face {
+font-family: 'Franklin Gothic Book';
+font-style: normal;
+font-weight: normal;
+src: local('Franklin Gothic Book'), url('fonts/FRABK.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Franklin Gothic Book Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Franklin Gothic Book Italic'), url('fonts/FRABKIT.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Franklin Gothic Demi Cond';
+font-style: normal;
+font-weight: normal;
+src: local('Franklin Gothic Demi Cond'), url('http://carolchennn.github.io/Chartbuilder/fonts/FGDCD.woff') format('woff');
+}
+
 svg {
 	font-size: 14px;
 }
@@ -40,23 +61,29 @@ svg .axis path {
 }
 
 svg .axis text {
-	font-family: Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
+	text-transform: uppercase;
 }
 
 svg .legendItem text {
-	font-family: Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
+	text-transform: uppercase;
 }
 
 svg text.metaText {
-	font-family: Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
 	font-size:  10px;
 	text-rendering:   optimizeLegibility;
 	fill:  #999999;
 }
 
-svg text.barLabel, 
 svg text.bargridLabel {
-	font-family: Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
+	text-transform: uppercase;
+}
+
+svg text.barLabel {
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
 }
 
 /*Default styling of series*/
@@ -74,6 +101,9 @@ svg .seriesScatter circle {
 }
 	
 #titleLine {
-	font-family: Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
+	font-weight: bolder;
+	text-transform: uppercase;
+	font-size:16px;
 	fill: #666666;
 }

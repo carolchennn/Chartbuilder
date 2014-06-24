@@ -1791,7 +1791,7 @@ function Gneiss(config)
 					.attr("y",function(d,i) {yAxisIndex = d3.select(this.parentNode).data()[0].axis; return (g.yAxis()[yAxisIndex].scale(d)-g.yAxis()[yAxisIndex].scale(Gneiss.helper.columnXandHeight(d,g.yAxis()[yAxisIndex].scale.domain()))) >= 0 ? g.yAxis()[yAxisIndex].scale(Gneiss.helper.columnXandHeight(d,g.yAxis()[yAxisIndex].scale.domain())) : g.yAxis()[yAxisIndex].scale(d)})
 				
 				columnRects.exit().remove()
-			
+
 				//add lines
 				lineSeries = g.seriesContainer.selectAll("path")
 					.data(sbt.line)
@@ -1849,7 +1849,7 @@ function Gneiss(config)
 						})
 			
 				lineSeriesDots.exit().remove()
-								
+
 				//add scatter
 				scatterGroups = g.seriesContainer.selectAll("g.seriesScatter")
 					.data(sbt.scatter)
