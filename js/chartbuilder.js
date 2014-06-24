@@ -857,17 +857,6 @@ ChartBuilder.start = function(config) {
 			.enter()
 			.append("option")
 			.text(function(d){return d.name?d.name:"Untitled Chart";});
-			
-   
-      
-      var ALMlogo = document.getElementById('ALMlogo');
-      var ColorSelect= document.getElementById('ColorSelect');
-      
-      function flip() {
-          ALMlogo.src = ColorSelect.children[ColorSelect.selectedIndex].getAttribute('src');
-      }
-	
-	
 	
 	$("#createImageButton").click(function() {
 		ChartBuilder.inlineAllStyles();
