@@ -859,10 +859,10 @@ ChartBuilder.start = function(config) {
 			.text(function(d){return d.name?d.name:"Untitled Chart";});
 			
       function flip() {
-          ALMlogo.src = ColorSelect.children[ColorSelect.selectedIndex].getAttribute('url');
+          ALMlogo.src = ColorSelect.children[ColorSelect.selectedIndex].getAttribute('src');
       }
       
-      var myimage = document.getElementById('ALMlogo');
+      var ALMlogo = document.getElementById('ALMlogo');
       var ColorSelect= document.getElementById('ColorSelect');
 	
 	
