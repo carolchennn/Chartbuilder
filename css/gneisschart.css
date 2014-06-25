@@ -61,26 +61,26 @@ svg .axis path {
 }
 
 svg .axis text {
-	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
 }
 
 svg .legendItem text {
-	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
 }
 
 svg text.metaText {
-	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
 	font-size:  10px;
 	text-rendering:   optimizeLegibility;
 	fill:  #999999;
 }
 
 svg text.bargridLabel {
-	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
 }
 
 svg text.barLabel {
-	font-family: 'Franklin Gothic Book', Helvetica, sans-serif;
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
 }
 
 /*Default styling of series*/
