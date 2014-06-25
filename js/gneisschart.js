@@ -62,7 +62,7 @@ Gneiss.defaultGneissChartConfig = {
 			tickValues: null,
 			prefix: {
 				value: "",
-				use: "top" //can be "top" "all" "positive" or "negative"
+				use: "all" //can be "top" "all" "positive" or "negative"
 			},
 			suffix: {
 				value: "",
