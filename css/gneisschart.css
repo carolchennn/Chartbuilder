@@ -62,12 +62,10 @@ svg .axis path {
 
 svg .axis text {
 	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
-	text-transform: uppercase;
 }
 
 svg .legendItem text {
 	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
-	text-transform: uppercase;
 }
 
 svg text.metaText {
@@ -79,7 +77,6 @@ svg text.metaText {
 
 svg text.bargridLabel {
 	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
-	text-transform: uppercase;
 }
 
 svg text.barLabel {
