@@ -676,7 +676,8 @@ function Gneiss(config)
 			.attr("y",18)
 			.attr("x", g.padding().left)
 			.attr("id","titleLine")
-			.text(g.title()));
+			.text(g.title())
+			.call(Gneiss.helper.wrap, g.width()-g.defaultPadding().left-g.defaultPadding().right));
 		
 		this.calculateColumnWidths()
 			.setYScales()
