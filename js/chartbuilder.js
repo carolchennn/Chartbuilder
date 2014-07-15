@@ -317,7 +317,7 @@ ChartBuilder = {
         canvasContext.drawSvg(svg,0,0,canvas.width,canvas.height);
         // var height = $("#chartContainer").height()* 2
         var height = $("#chartContainer").height()
-        canvasContext.drawImage(logo,0,0,canvas.width,height);
+        canvasContext.drawImage(logo,0,height);
         
 		var filename = [];
 		for (var i=0; i < chart.series().length; i++) {
