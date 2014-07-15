@@ -27,6 +27,17 @@
       function flip() {
           ALMlogo.src = ColorSelect.children[ColorSelect.selectedIndex].getAttribute('src');
       }
+      
+      var selectmenu=document.getElementById("ColumnLabelOption)
+selectmenu.onchange=function(){
+ var chosenoption=this.options[this.selectedIndex]
+ if (chosenoption.value!="show"){
+ $(".columnLabel").css({"display":"none"});
+ }
+ if (chosenoption.value!="hide"){
+ $(".columnLabel").css({"display":"block"});
+ }
+}
 
     </script>
 	</head>
@@ -155,7 +166,18 @@
               <div class="optionGroup showonlywith-ordinal">No options available</div>
             </div>
             <div class="optionBlock">
-              <h2>6. Logo Options</h2>
+            <h2>6. Label Options (for Column)</h2>
+            <div id="form">
+            <select id="ColumnLabelOption">
+           <option value="show">Yes</option>
+           <option value="hide">No</option>
+              </select>
+              </div>
+            </div>
+            
+            
+            <div class="optionBlock">
+              <h2>7. Logo Options</h2>
               <div id="form">
               <select id="ColorSelect" onchange="javascript:flip();">
         <option src="images/ALM.jpg"  value='ALM'>American Lawyer Media</option>
@@ -168,7 +190,7 @@
             </div>
             
             <div class="optionBlock full">
-              <h2>7. Export</h2>
+              <h2>8. Export</h2>
               <div class="updateButton" id="createImageButton">
                 <p>Create Image of Chart</p>
               </div>
