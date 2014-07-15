@@ -308,13 +308,13 @@ ChartBuilder = {
 	//	canvas.width = $("#chartContainer").width() * 2;
 	//	canvas.height = $("#chartbigContainer").height()* 2 + 65;
 	canvas.width = $("#chartContainer").width();
-	canvas.height = $("#chartbigContainer").height();
+	canvas.height = $("#chartbigContainer").height() + 65;
         var canvasContext = canvas.getContext("2d");
         
         var svg = $.trim(document.getElementById("chartContainer").innerHTML);
         var svg1 = $.trim(document.getElementById("chartContainer").innerHTML);
         var logo = document.getElementById("ALMlogo");
-        canvasContext.drawSvg(svg,0,0,canvas.width,canvas.height);
+        canvasContext.drawSvg(svg,0,0,600,745);
         // var height = $("#chartContainer").height()* 2
         var height = $("#chartContainer").height()
         canvasContext.drawImage(logo,0,height);
