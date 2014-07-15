@@ -871,14 +871,14 @@ ChartBuilder.start = function(config) {
                                   html2canvas(document.getElementById("chartbigContainer"), {
                                               onrendered: function(tempcanvas) {
                                               var can = document.createElement('canvas');
-                                              can.width = $("#chartbigContainer").width() * 2;
-                                              can.height = $("#chartbigContainer").height() * 4;
+                                              can.width = $("#chartbigContainer").width() * 1;
+                                              can.height = $("#chartbigContainer").height() * 2;
                                               var ctx = can.getContext('2d');
                                               var framecontent = tempcanvas.getContext("2d");
                                               
                                               var canvas1 = document.getElementById("canvas");
-                                              canvas1.width = $("#chartContainer").width() * 2;
-                                              canvas1.height = $("#chartContainer").height() *4;
+                                              canvas1.width = $("#chartContainer").width() * 1;
+                                              canvas1.height = $("#chartContainer").height() *2;
                                               var canvasContext1 = canvas1.getContext("2d");
                                             
                                               console.log("callback");
