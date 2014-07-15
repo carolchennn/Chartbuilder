@@ -311,12 +311,24 @@ ChartBuilder = {
 	canvas.height = $("#chartbigContainer").height();
         var canvasContext = canvas.getContext("2d");
         
-        var svg = $.trim(document.getElementById("chartContainer").innerHTML);
+     //   var svg = $.trim(document.getElementById("chartContainer").innerHTML);
+     //   var svg1 = $.trim(document.getElementById("chartContainer").innerHTML);
+    //    var logo = document.getElementById("ALMlogo");
+     //   canvasContext.drawSvg(svg,0,0);
+    //    var height = $("#chartContainer").height()* 2
+    //    canvasContext.drawImage(logo,0,height);
+        
         var svg1 = $.trim(document.getElementById("chartContainer").innerHTML);
-        var logo = document.getElementById("ALMlogo");
-        canvasContext.drawSvg(svg,0,0);
-        var height = $("#chartContainer").height()* 2
-        canvasContext.drawImage(logo,0,height);
+        var svg = svg1.cloneNode(true);
+        svg.style.width = '50%'
+        svg.style.width = '50%'
+        var logoraw = document.getElementById("ALMlogo");
+        var logo =  logoraw.cloneNode(true); 
+        canvasContext.drawSvg(svg,0,0); 
+    var height = $("#chartContainer").height()* 2
+    canvasContext.drawImage(logo,0,height);
+        
+        
 
 		var filename = [];
 		for (var i=0; i < chart.series().length; i++) {
@@ -872,14 +884,14 @@ ChartBuilder.start = function(config) {
                                   html2canvas(document.getElementById("chartbigContainer"), {
                                               onrendered: function(tempcanvas) {
                                               var can = document.createElement('canvas');
-                                              can.width = $("#chartbigContainer").width();
-                                              can.height = $("#chartbigContainer").height();
+                                              can.width = $("#chartbigContainer").width() * 2;
+                                              can.height = $("#chartbigContainer").height() * 4;
                                               var ctx = can.getContext('2d');
                                               var framecontent = tempcanvas.getContext("2d");
                                               
                                               var canvas1 = document.getElementById("canvas");
-                                              canvas1.width = $("#chartContainer").width();
-                                              canvas1.height = $("#chartContainer").height();
+                                              canvas1.width = $("#chartContainer").width() * 2;
+                                              canvas1.height = $("#chartContainer").height() * 4;
                                               var canvasContext1 = canvas1.getContext("2d");
                                             
                                               console.log("callback");
