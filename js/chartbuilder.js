@@ -305,16 +305,19 @@ ChartBuilder = {
         console.log("test");
         
         var canvas = document.getElementById("canvas");
-	canvas.width = $("#chartContainer").width() * 2;
-	canvas.height = $("#chartbigContainer").height()* 2 + 65;
+	//canvas.width = $("#chartContainer").width() * 2;
+	//canvas.height = $("#chartbigContainer").height()* 2 + 65;
+	canvas.width = $("#chartContainer").width();
+	canvas.height = $("#chartbigContainer").height();
         var canvasContext = canvas.getContext("2d");
+        canvasContext.drawImage(img, 0, 0, canvas.width, canvas.height);
         
-        var svg = $.trim(document.getElementById("chartContainer").innerHTML);
-        var svg1 = $.trim(document.getElementById("chartContainer").innerHTML);
-        var logo = document.getElementById("ALMlogo");
-        canvasContext.drawSvg(svg,0,0);
-        var height = $("#chartContainer").height()* 2
-        canvasContext.drawImage(logo,0,height);
+        // var svg = $.trim(document.getElementById("chartContainer").innerHTML);
+        // var svg1 = $.trim(document.getElementById("chartContainer").innerHTML);
+        // var logo = document.getElementById("ALMlogo");
+       //  canvasContext.drawSvg(svg,0,0);
+        // var height = $("#chartContainer").height()* 2
+        // canvasContext.drawImage(logo,0,height);
         
 		var filename = [];
 		for (var i=0; i < chart.series().length; i++) {
