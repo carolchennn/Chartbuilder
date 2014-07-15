@@ -305,8 +305,10 @@ ChartBuilder = {
         console.log("test");
         
         var canvas = document.getElementById("canvas");
-		canvas.width = $("#chartContainer").width() * 2;
-		canvas.height = $("#chartbigContainer").height()* 2 + 65;
+	//	canvas.width = $("#chartContainer").width() * 2;
+	//	canvas.height = $("#chartbigContainer").height()* 2 + 65;
+	canvas.width = $("#chartContainer").width();
+	canvas.height = $("#chartbigContainer").height();
         var canvasContext = canvas.getContext("2d");
         
         var svg = $.trim(document.getElementById("chartContainer").innerHTML);
