@@ -884,7 +884,7 @@ ChartBuilder.start = function(config) {
                                               console.log("callback");
                                               callback_flag = true;
                                               
-                                              ChartBuilder.createChartImage(); // this is where shit happened
+                                              ChartBuilder.createChartImage(); 
                                                 }
                                               });
            
