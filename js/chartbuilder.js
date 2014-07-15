@@ -310,12 +310,22 @@ ChartBuilder = {
         var canvasContext = canvas.getContext("2d");
         
         
-        var svg = $.trim(document.getElementById("chartContainer").innerHTML);
-        var svg1 = $.trim(document.getElementById("chartContainer").innerHTML);
-        var logo = document.getElementById("ALMlogo");
-        canvasContext.drawSvg(svg,0,0);
-        var height = $("#chartContainer").height()* 2
-        canvasContext.drawImage(logo,0,height);
+       // var svg = $.trim(document.getElementById("chartContainer").innerHTML);
+       // var svg1 = $.trim(document.getElementById("chartContainer").innerHTML);
+       // var logo = document.getElementById("ALMlogo");
+       // canvasContext.drawSvg(svg,0,0);
+       // var height = $("#chartContainer").height()* 2
+       // canvasContext.drawImage(logo,0,height);
+       
+       var svg1 = $.trim(document.getElementById("chartContainer").innerHTML);
+        var svg = svg1.cloneNode(true);
+        svg.style.width = '50%'
+        svg.style.width = '50%'
+        var logoraw = document.getElementById("ALMlogo");
+        var logo =  logoraw.cloneNode(true); 
+        canvasContext.drawSvg(svg,0,0); 
+    var height = $("#chartContainer").height()* 2
+    canvasContext.drawImage(logo,0,height);
 
 		
 		var filename = [];
