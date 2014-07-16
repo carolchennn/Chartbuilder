@@ -158,11 +158,22 @@
             <div class="optionBlock">
             <h2>6. Label Options (for Column)</h2>
             <div id="form">
+            <div id="ColumnLabelForm">Column Labels</div>
             <select id="ColumnLabelOption">
            <option value="show">Yes</option>
            <option value="hide">No</option>
               </select>
               </div>
+              
+              <div id="form2">
+             <div id="ColumnAxisForm">Right Axis</div>
+            <select id="ColumnAxisOption">
+           <option value="showAxis">Yes</option>
+           <option value="hideAxis">No</option>
+              </select>
+              </div>
+              
+              
             </div>
             
             
@@ -267,6 +278,17 @@
                       $(".columnLabel").css({"display":"block"});
                         }
                          }
+  
+                         var selectmenu=document.getElementById("ColumnAxisOption")
+                        selectmenu.onchange=function(){
+                        var chosenoption2=this.options[this.selectedIndex]
+                       if (chosenoption2.value!="showAxis"){
+                       $("#rightAxis").css({"display":"none"});
+                         }
+                      if (chosenoption2.value!="hideAxis"){
+                      $("#rightAxis").css({"display":"block"});
+                        }
+                         }
                          
                          
         var OptionForm = document.getElementById("FormOption");
@@ -280,6 +302,7 @@
                       $(this).prop('selected', true);;
                         }
                         }
+                        
 
                          
 		</script>
