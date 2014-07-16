@@ -299,14 +299,29 @@ ChartBuilder = {
 	},
     
     
-    
-    
     createChartImage: function() {
         var callback_flag = false;
         console.log("start");
         /////////////////////
         var input = 1200
-        var ratio = input/600;// this is where to modify e.g.   600/1200
+        
+        var selectmenu=document.getElementById("FormOption")
+                        selectmenu.onchange=function(){
+                        var chosenoption=this.options[this.selectedIndex]
+                       if (chosenoption.value!="600"){
+                       	
+                       var ratio = input/1200;
+                       
+                         }
+                      if (chosenoption.value!="1200"){
+                      	
+                      var ratio = input/600;
+                      
+                      
+                        }
+                         }
+        
+        // this is where to modify e.g.   600/1200
         ////////////////////////
         var canvas = document.getElementById("canvas");
 		canvas.width = $("#chartContainer").width();
