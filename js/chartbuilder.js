@@ -304,7 +304,6 @@ ChartBuilder = {
         console.log("start");
         /////////////////////
         var input = 600;
-       // var ratio = input/600
         
         var OptionForm = document.getElementById("FormOption");
         var pixels = OptionForm.options[OptionForm.selectedIndex].value;
@@ -312,8 +311,8 @@ ChartBuilder = {
         
         ////////////////////////
         var canvas = document.getElementById("canvas");
-		canvas.width = $("#chartContainer").width();
-		canvas.height = $("#chartbigContainer").height();
+		canvas.width = $("#chartContainer").width()*ratio;
+		canvas.height = $("#chartbigContainer").height()*ratio;
         var canvasContext = canvas.getContext("2d");
 
         
@@ -336,7 +335,7 @@ ChartBuilder = {
         console.log(w);
 
         canvasContext.drawSvg(svg,0,0);
-        var height = $("#chartContainer").height();
+        var height = $("#chartContainer").height()*ratio;
         canvasContext.drawImage(logo,0,height,w,h);
 
 		
