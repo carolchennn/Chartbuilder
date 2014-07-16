@@ -300,24 +300,105 @@ ChartBuilder = {
     
     
     
-	createChartImage: function() {
+    
+    createChartImage: function() {
+        var callback_flag = false;
+        console.log("start");
+        /////////////////////
+        var input = 1200
+        var ratio = input/600;// this is where to modify e.g.   600/1200
+        ////////////////////////
+        var canvas = document.getElementById("canvas");
+		canvas.width = $("#chartContainer").width();
+		canvas.height = $("#chartbigContainer").height();
+        var canvasContext = canvas.getContext("2d");
+
+        
+        var svg1 = document.getElementById("chartContainer");
+        var svg2 = svg1.cloneNode(true);
+        var child = svg2.firstElementChild;
+        child.setAttribute("transform", "scale("+(ratio/2)+")");
+
+        console.log(svg2);
+
+        var svg = $.trim(svg2.innerHTML);
+        var logoraw = document.getElementById("ALMlogo");
+        var logo =  logoraw.cloneNode(true);
+       // var svg = svg1.cloneNode(true);
+        var h = (logo.height/ratio);
+        console.log(logo.height);
+
+        console.log(h);
+        var w = (logo.width/ratio);
+        console.log(w);
+
+        canvasContext.drawSvg(svg,0,0);
+        var height = $("#chartContainer").height();
+        canvasContext.drawImage(logo,0,height,w,h);
+
+		
+		var filename = [];
+		for (var i=0; i < chart.series().length; i++) {
+			filename.push(chart.series()[i].name);
+		}
+		
+		if(chart.title().length > 0) {
+			filename.unshift(chart.title());
+		}
+		
+		filename = filename.join("-").replace(/[^\w\d]+/gi, '-');
+
+		var svgContent = this.createSVGContent(document.getElementById("chart"));
+
+        $("#downloadImageLink").attr("href",canvas.toDataURL("png"))
+        .attr("download",function(){ return filename + "_chartbuilder.png";
+              });
+
+		$("#downloadSVGLink").attr("href","data:text/svg,"+ svgContent.source[0])
+        .attr("download",function(){ return filename + "_chartbuilder.svg";});
+        
+        
+        var icon = this.setFavicon();
+        this.storeLocalChart(filename);
+        
+		if(!(/Apple/).test(navigator.vendor)) {
+			//blobs dont work in Safari so don't use that method
+            
+			var link = document.getElementById('downloadImageLink');
+			var base64 = canvas.toDataURL("png").split(",")[1];
+			var bytes = window.atob(base64);
+			var ui8a = new Uint8Array(bytes.length);
+            
+			for (var i = 0; i < bytes.length; i++)
+				ui8a[i] = bytes[i].charCodeAt(0);
+            
+			var blob = new Blob([ui8a], { type: 'image/png' });
+			var url = URL.createObjectURL(blob);
+			link.href = url;
+			
+			link = document.getElementById('downloadSVGLink');
+			blob = new Blob(svgContent.source, { type: '"text\/xml"' });
+			url = URL.createObjectURL(blob);
+			link.href = url;
+		}
+           },
+    
+    
+/*	createChartImage: function() {
         var callback_flag = false;
         console.log("test");
         
         var canvas = document.getElementById("canvas");
-	//canvas.width = $("#chartContainer").width() * 2;
-	//canvas.height = $("#chartbigContainer").height()* 2 + 65;
-	canvas.width = $("#chartContainer").width();
-	canvas.height = $("#chartbigContainer").height() + 32;
+	canvas.width = $("#chartContainer").width() * 2;
+        canvas.height = $("#chartbigContainer").height()* 2 + 65;
         var canvasContext = canvas.getContext("2d");
         
         var svg = $.trim(document.getElementById("chartContainer").innerHTML);
         var svg1 = $.trim(document.getElementById("chartContainer").innerHTML);
         var logo = document.getElementById("ALMlogo");
         canvasContext.drawSvg(svg,0,0);
-        var height = $("#chartContainer").height()
-        // var height = $("#chartContainer").height()* 2
-       canvasContext.drawImage(logo,0,height);
+        var height = $("#chartContainer").height()* 2
+        canvasContext.drawImage(logo,0,height);
         
 		var filename = [];
 		for (var i=0; i < chart.series().length; i++) {
@@ -363,7 +444,7 @@ ChartBuilder = {
 			url = URL.createObjectURL(blob);
 			link.href = url;
         }
-           },
+           }, */
     
     
     
