@@ -190,6 +190,14 @@
             
             <div class="optionBlock full">
               <h2>8. Export</h2>
+              <div id="formExport">
+             <select id="FormOption">
+            <option value="1200">Width: 1200px</option>
+            <option value="600">Width: 600px</option>
+              </select>
+              </div>
+              
+              
               <div class="updateButton" id="createImageButton">
                 <p>Create Image of Chart</p>
               </div>
@@ -254,6 +262,22 @@
                          }
                       if (chosenoption.value!="hide"){
                       $(".columnLabel").css({"display":"block"});
+                        }
+                         }
+                         
+                       var selectmenu=document.getElementById("FormOption")
+                        selectmenu.onchange=function(){
+                        var chosenoption=this.options[this.selectedIndex]
+                       if (chosenoption.value!="600"){
+                       	
+                       var ratio = 1;
+                       
+                         }
+                      if (chosenoption.value!="1200"){
+                      	
+                      var ratio = 2;
+                      
+                      
                         }
                          }
 		       
