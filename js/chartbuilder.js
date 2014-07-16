@@ -303,12 +303,12 @@ ChartBuilder = {
         var callback_flag = false;
         console.log("start");
         /////////////////////
-        var input = 1200;
+        var input = 600;
        // var ratio = input/600
         
         var OptionForm = document.getElementById("FormOption");
         var pixels = OptionForm.options[OptionForm.selectedIndex].value;
-        var ratio = input/pixels;
+        var ratio = pixels/input;
         
         ////////////////////////
         var canvas = document.getElementById("canvas");
@@ -320,7 +320,7 @@ ChartBuilder = {
         var svg1 = document.getElementById("chartContainer");
         var svg2 = svg1.cloneNode(true);
         var child = svg2.firstElementChild;
-        child.setAttribute("transform", "scale("+(ratio/2)+")");
+        child.setAttribute("transform", "scale("+(ratio)+")");
 
         console.log(svg2);
 
@@ -328,11 +328,11 @@ ChartBuilder = {
         var logoraw = document.getElementById("ALMlogo");
         var logo =  logoraw.cloneNode(true);
        // var svg = svg1.cloneNode(true);
-        var h = (logo.height/ratio);
+        var h = (logo.height/(ratio*2));
         console.log(logo.height);
 
         console.log(h);
-        var w = (logo.width/ratio);
+        var w = (logo.width/(ratio*2));
         console.log(w);
 
         canvasContext.drawSvg(svg,0,0);
