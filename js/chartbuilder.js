@@ -303,25 +303,12 @@ ChartBuilder = {
         var callback_flag = false;
         console.log("start");
         /////////////////////
-        var input = 1200
+        var input = 1200;
        // var ratio = input/600
         
         var OptionForm = document.getElementById("FormOption");
         var pixels = OptionForm.options[OptionForm.selectedIndex].value;
-                
-                selectmenu.onchange=function(){
-                       
-                       if (pixels.value!="600"){
-                       	
-                       var ratio = input/1200;
-                       
-                         }
-                      if (pixels.value!="1200"){
-                      	
-                      var ratio = input/600;
-                      
-                        }
-                         }
+        var ratio = input/pixels;
         
         
         ////////////////////////
