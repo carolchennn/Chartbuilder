@@ -87,6 +87,11 @@ svg text.columnLabel {
 	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
 }
 
+#ColumnLabelForm, #ColumnAxisForm {
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif; 
+	font-size:0.75em;
+}
+
 
 
 /*Default styling of series*/
