@@ -265,6 +265,20 @@
                         }
                          }
                          
+                         
+        var OptionForm = document.getElementById("FormOption");
+        var pixels = OptionForm.options[OptionForm.selectedIndex].value; 
+        
+                        OptionForm.onchange=function(){
+                        if (pixels.value!="600"){
+                       $(this).prop('selected', true);;
+                         }
+                      if ( pixels.value!="1200"){
+                      $(this).prop('selected', true);;
+                        }
+                        }
+
+                         
 		</script>
 
 
