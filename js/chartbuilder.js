@@ -308,8 +308,7 @@ ChartBuilder = {
         
         var OptionForm = document.getElementById("FormOption");
         var pixels = OptionForm.options[OptionForm.selectedIndex].value;
-        var ratio = input/pixels;
-        
+        var ratio = input/(pixels.value!);
         
         ////////////////////////
         var canvas = document.getElementById("canvas");
