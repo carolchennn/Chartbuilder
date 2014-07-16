@@ -311,7 +311,7 @@ ChartBuilder = {
         
         ////////////////////////
         var canvas = document.getElementById("canvas");
-		canvas.width = $("#chartContainer").width()*ratio + (ratio -1) * 65;
+		canvas.width = $("#chartContainer").width()*ratio;
 		canvas.height = $("#chartbigContainer").height()*ratio + (ratio -1) * 65;
         var canvasContext = canvas.getContext("2d");
 
@@ -327,11 +327,11 @@ ChartBuilder = {
         var logoraw = document.getElementById("ALMlogo");
         var logo =  logoraw.cloneNode(true);
        // var svg = svg1.cloneNode(true);
-        var h = (logo.height/(ratio/2 *4));
+        var h = (logo.height*(ratio/2));
         console.log(logo.height);
 
         console.log(h);
-        var w = (logo.width/(ratio/2 *4));
+        var w = (logo.width*(ratio/2));
         console.log(w);
 
         canvasContext.drawSvg(svg,0,0);
