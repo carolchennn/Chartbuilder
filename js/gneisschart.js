@@ -1384,7 +1384,7 @@ function Gneiss(config)
 		}
 		
 		g.chartElement().selectAll("#xAxis text")
-			.attr("text-anchor", g.xAxis().type == "date" ? (g.seriesByType().column.length>0 && g.seriesByType().line.length == 0 && g.seriesByType().scatter.length == 0 ? "middle" : "start"): (g.isBargrid() ? "end" : "middle"))
+			.attr("text-anchor", g.xAxis.type == "date" ? (g.sbt.column.length>0 && g.sbt.line.length == 0 && g.sbt.scatter.length == 0 ? "middle":"start"): (g.isBargrid ? "end":"middle"))
 			//.attr("text-anchor", g.isBargrid ? "end":"middle")
 			.each(function() {
 				var pwidth = this.parentNode.getBoundingClientRect().width
