@@ -168,8 +168,8 @@
            <div id="form3">
             <div id="BarLabelForm">Bar Labels</div>
             <select id="BarLabelOption">
-           <option value="show">Yes</option>
-           <option value="hide">No</option>
+           <option value="showBarLabel">Yes</option>
+           <option value="hideBarLabel">No</option>
               </select>
               </div>
               
@@ -301,10 +301,10 @@
                          var selectmenu=document.getElementById("BarLabelOption")
                         selectmenu.onchange=function(){
                         var chosenoption3=this.options[this.selectedIndex]
-                       if (chosenoption3.value!="show"){
+                       if (chosenoption3.value!="showBarLabel"){
                        $(".bargridLabel text").css({"display":"none"});
                          }
-                      if (chosenoption.value!="hide"){
+                      if (chosenoption.value!="hideBarLabel"){
                       $(".bargridLabel text").css({"display":"block"});
                         }
                          }
