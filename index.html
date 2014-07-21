@@ -156,12 +156,20 @@
               <div class="optionGroup showonlywith-ordinal">No options available</div>
             </div>
             <div class="optionBlock">
-            <h2>6. Label Options (for Column)</h2>
+            <h2>6. Label Options</h2>
             <div id="form">
             <div id="ColumnLabelForm">Column Labels</div>
             <select id="ColumnLabelOption">
            <option value="show">Yes</option>
            <option value="hide">No</option>
+              </select>
+              </div>
+           
+           <div id="form3">
+            <div id="BarLabelForm">Bar Labels</div>
+            <select id="BarLabelOption">
+           <option value="showBar">Yes</option>
+           <option value="hideBar">No</option>
               </select>
               </div>
               
@@ -289,6 +297,18 @@
                       $("#rightAxis text").css({"display":"block"});
                         }
                          }
+                         
+                         var selectmenu=document.getElementById("BarLabelOption")
+                        selectmenu.onchange=function(){
+                        var chosenoption3=this.options[this.selectedIndex]
+                       if (chosenoption3.value!="showBar"){
+                       $(".bargridLabel").css({"display":"none"});
+                         }
+                      if (chosenoption.value!="hideBar"){
+                      $(".bargridLabel").css({"display":"block"});
+                        }
+                         }
+  
                          
                          
         var OptionForm = document.getElementById("FormOption");
