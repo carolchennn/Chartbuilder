@@ -226,7 +226,7 @@ label {
 	margin-bottom: .25em;
 }
 
-#ColumnLabelForm, #ColumnAxisForm {
+#ColumnLabelForm, #ColumnAxisForm, #BarLabelForm {
 	font-family: Arial, "MS Trebuchet", sans-serif;
 	color: #666666;
 	display: block;
