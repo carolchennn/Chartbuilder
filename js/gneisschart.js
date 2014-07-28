@@ -1787,7 +1787,7 @@ function Gneiss(config)
                            
                            columnGroups.selectAll("text")
                           .data(function(d){return d.data})
-                          .text(function(d){return d})
+                          .text(function(d,i){return g.numberFormat(d)})
                           .attr("text-anchor","middle")
                           .attr("class","columnLabel")
                           .attr("x",g.xAxis().type =="date" ?
@@ -1810,7 +1810,7 @@ function Gneiss(config)
  					.data(function(d){return d.data})
  					.enter()
  					.append("text")
- 					.text(function(d,i){return g.numberFormat(d);})
+ 					.text(function(d,i){return g.numberFormat(d)})
  					.attr("class","columnLabel")
  					.attr("x",g.xAxis().type =="date" ? 
  							function(d,i) {return g.xAxis().scale(g.xAxisRef()[0].data[i])}:
