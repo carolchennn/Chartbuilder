@@ -297,29 +297,23 @@ ChartBuilder = {
 
 		return output;
 	},
-    
-    
     createChartImage: function() {
         var callback_flag = false;
         console.log("start");
         /////////////////////
-        var input = 600;
-        
-        var OptionForm = document.getElementById("FormOption");
-        var pixels = OptionForm.options[OptionForm.selectedIndex].value;
-        var ratio = pixels/input;
-        
+        var input = 1200
+        var ratio = input/600;// this is where to modify e.g.   600/1200
         ////////////////////////
         var canvas = document.getElementById("canvas");
-		canvas.width = $("#chartContainer").width()*ratio;
-		canvas.height = $("#chartbigContainer").height()*ratio + (ratio -1) * 65;
+		canvas.width = $("#chartContainer").width();
+		canvas.height = $("#chartContainer").height()+65;
         var canvasContext = canvas.getContext("2d");
 
         
         var svg1 = document.getElementById("chartContainer");
         var svg2 = svg1.cloneNode(true);
         var child = svg2.firstElementChild;
-        child.setAttribute("transform", "scale("+(ratio)+")");
+        child.setAttribute("transform", "scale("+(ratio/2)+")");
 
         console.log(svg2);
 
