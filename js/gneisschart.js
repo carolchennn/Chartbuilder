@@ -1810,13 +1810,14 @@ function Gneiss(config)
  					.data(function(d){return d.data})
  					.enter()
  					.append("text")
- 					.text(function(d){return d})
- 					.attr("text-anchor","middle")
+ 					.text(function(d,i){var output = g.numberFormat(d); return output;})
  					.attr("class","columnLabel")
  					.attr("x",g.xAxis().type =="date" ? 
  							function(d,i) {return g.xAxis().scale(g.xAxisRef()[0].data[i])}:
  							function(d,i) {return g.xAxis().scale(i)}
  					)
+ 					
+ 					
                 .attr("y", function(d,i) {yAxisIndex = d3.select(this.parentNode).data()[0].axis; return (d || d ===0 ? (g.yAxis()[yAxisIndex]).scale(d) : -100)-4})
      
 				//add lines
