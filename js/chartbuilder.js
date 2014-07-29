@@ -1196,6 +1196,7 @@ ChartBuilder.start = function(config) {
 		ChartBuilder.makeLegendAdjustable();
 		
 		chart.titleElement().text(chart.title());
+	chart.subtitleElement().text("subtitle");
 	});
 	
 	$(".downloadLink").click(function() {
