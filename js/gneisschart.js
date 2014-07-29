@@ -687,7 +687,7 @@ function Gneiss(config)
 			.text(g.title()));
 			
 		g.subtitleElement(g.chartElement().append("text")
-           .attr("y",39)
+           .attr("y",43)
            .attr("x", g.padding().left)
            .attr("id","titleLine2")
            .text(g.title()));
