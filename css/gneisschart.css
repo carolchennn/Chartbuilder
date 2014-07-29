@@ -109,3 +109,9 @@ svg .seriesScatter circle {
 	font-size:16px;
 	fill: #666666;
 }
+
+#titleLine2{
+	font-family: 'Franklin Gothic Demi Cond', Helvetica, sans-serif;
+	font-size:14px;
+	fill: #666666;
+}
