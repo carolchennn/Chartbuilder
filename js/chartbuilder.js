@@ -1200,7 +1200,6 @@ ChartBuilder.start = function(config) {
 	
 	$("#chart_subtitle").keyup(function() {
          var val = $(this).val();
-         val = val.length > 48 ? val.substring(0,48) + "..." : val;
          chart.title(val);
          chart.resize()
          .setPadding();
