@@ -264,6 +264,7 @@ function Gneiss(config)
 	var containerElement;
 	var chartElement;
 	var titleElement;
+	var subtitleElement;
 	var footerElement;
 	var sourceElement;
 	var creditElement;
@@ -396,6 +397,13 @@ function Gneiss(config)
 		}
 		titleElement = elem;
 	};
+	
+	 this.subtitleElement = function Gneiss$subtitleElement(elem) {
+ 		if (!arguments.length) {
+ 			return subtitleElement;
+ 		}
+ 		subtitleElement = elem;
+ 	};
 	
 	this.source = function Gneiss$sourceLineText(s) {
 		if (!arguments.length) {
@@ -677,6 +685,12 @@ function Gneiss(config)
 			.attr("x", g.padding().left)
 			.attr("id","titleLine")
 			.text(g.title()));
+			
+		g.subtitleElement(g.chartElement().append("text")
+           .attr("y",39)
+           .attr("x", g.padding().left)
+           .attr("id","titleLine2")
+           .text(g.title()));
 		
 		this.calculateColumnWidths()
 			.setYScales()
@@ -823,7 +837,8 @@ function Gneiss(config)
 		//Add the height of the title line to the padding, if the title line has a height
 		//Add the height of the axis label if there is no title
 		title_height = g.titleElement()[0][0].getBoundingClientRect().height;
-		title_height = title_height*3;
+		 console.log("subtitle height = "+g.subtitleElement().text().length);
+		title_height = g.subtitleElement().text().length != 0 ? title_height *2: title_height;
 		axis_label_height = d3.selectAll(".yAxis text")[0][0].getBoundingClientRect().height;
 
 		padding_top += title_height > 0? title_height + g.titleBottomMargin() : axis_label_height + g.titleBottomMargin();
@@ -1951,11 +1966,13 @@ function Gneiss(config)
 			//add legend to chart
 			var legendGroups = g.legendItemContainer.selectAll("g")
 				.data(g.series());
+			
+			var tempheight = g.subtitleElement().text().length != 0 ? title_height*0.6: 0;
 
 			var legItems = 	legendGroups.enter()
 				.append("g")
 				.attr("class","legendItem")
-				.attr("transform","translate("+g.padding().left+","+(g.defaultPadding().top + g.titleElement()[0][0].getBoundingClientRect().height) +")");
+				.attr("transform","translate("+g.padding().left+","+(g.defaultPadding().top + g.titleElement()[0][0].getBoundingClientRect().height+tempheight) +")");
 
 			legendGroups.exit().remove()
 
