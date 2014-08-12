@@ -256,7 +256,33 @@ Gneiss.helper = {
     var separator = elem.attr("transform").indexOf(",") > -1 ? "," : " ";
     var trans = elem.attr("transform").split(separator);
     return { x: (trans[0] ? parseFloat(trans[0].split("(")[1]) : 0), y: (trans[1] ? parseFloat(trans[1].split(")")[0] ): 0) };
-  }
+  },
+        wrap: function(text, size) {
+		//from http://bl.ocks.org/mbostock/7555321
+		text.each(function() {
+			var text = d3.select(this),
+				words = text.text().split(/[\s]+/).reverse(),
+				word,
+				line = [],
+				lineNumber = 0,
+				lineHeight = 1.2, // ems
+				y = text.attr("y"),
+				x = text.attr("x"),
+				dy = parseFloat(text.attr("dy")) || 0,
+				tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+				text.attr("dy",null)
+			while (word = words.pop()) {
+				line.push(word);
+				tspan.text(line.join(" "));
+				if (tspan.node().getComputedTextLength() > size) {
+					line.pop();
+					tspan.text(line.join(" "));
+					line = [word];
+					tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", lineHeight + "em").text(word);
+				}
+			}
+		});
+	}
 };
 
 function Gneiss(config)
@@ -2024,7 +2050,45 @@ function Gneiss(config)
   
   this.updateMetaAndTitle = function Gneiss$updateMetaAndTitle() {
 		var g = this;
+		var creditBBox;
+
+		//the default values for the source element
+		var sourceElementX = g.width() - g.defaultPadding().right;;
+		var sourceElementDY = 0;
+		var sourceElementTA = "end"
+
+		//the default values for the credit element
+		var creditElementX = g.defaultPadding().left;
+
+		//place the footer elements in the right place
+
+		//test if the text elements are overlapping
+		creditBBox =  g.creditElement()[0][0].getBoundingClientRect()
+
+		var isOverlapping = sourceElementX - g.sourceElement()[0][0].getBoundingClientRect().width < creditBBox.width + creditBBox.left + 15
+
+		if(isOverlapping) {
+			//if they're overlapping stack the elements and align left
+			sourceElementDY = "1.4em";
+			sourceElementX = g.defaultPadding().left;
+			sourceElementTA = "start"
+		}
+
+		//update the source element with the propper values
+		g.sourceElement()
+			.attr("x", sourceElementX)
+			.attr("dy", sourceElementDY)
+			.attr("text-anchor", sourceElementTA)
+			.text(g.source())
+			.call(Gneiss.helper.wrap, g.width()-g.defaultPadding().left-g.defaultPadding().right);
+
+		g.creditElement().text(g.credit())
+			.attr("x",creditElementX);
+			
 		g.footerElement().attr("transform","translate(0," + (g.height() - g.footerMargin()) + ")");
+		
+		
+		
 		return this;
 	};
   
@@ -2053,30 +2117,51 @@ function Gneiss(config)
 		graph.hasColumns(seriesByType.column.length > 0);
 		graph.isBargrid(seriesByType.bargrid.length > 0);
 	};
+	
+  this.updateGroundRects = function Gneiss$updateGroundRects() {
+  	    var g = this;
+ 		// Insert a background rectangle to prevent transparency
+ 		d3.select("rect#ground")
+ 			.attr("width", g.width())
+ 			.attr("height", g.height());
+
+ 		//insert a background rectagle to style the plot area
+ 		d3.select("rect#plotArea")
+ 			.attr("transform","translate("+g.padding().left+","+g.padding().top+")")
+ 			.attr("width",g.width()-g.padding().left-g.padding().right)
+ 			.attr("height",g.height()-g.padding().top-g.padding().bottom);
+
+ 		return g;
+  }
   
   this.redraw = function Gneiss$redraw() {
   		
-
+  		var g = this;
 		/*
 			Redraw the chart
 		*/
-				
+		var wasBargrid = g.isBargrid();
+
 		//group the series by their type
-		this.seriesByType(this.splitSeriesByType(this.series()));
-		this.updateGraphPropertiesBasedOnSeriesType(this, this.seriesByType());
+		g.seriesByType(g.splitSeriesByType(g.series()));
+		g.updateGraphPropertiesBasedOnSeriesType(g, g.seriesByType());
 
-		this.calculateColumnWidths()
+		if(!wasBargrid && g.isBargrid()) {
+			g.resize();
+		}
 
-		this.setPadding()
+		g.calculateColumnWidths()
+
+		g.setPadding()
 			.setYScales()
 			.setXScales()
 			.setYAxes()
 			.setXAxis()
 			.drawSeriesAndLegend()
+			.updateGroundRects()
 			.updateMetaAndTitle();
-		
 
-		return this;
+		return g;
 	};
   
   // Call build() when someone attempts to construct a new Gneiss object
