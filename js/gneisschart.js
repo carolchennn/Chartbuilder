@@ -2061,8 +2061,7 @@ function Gneiss(config)
 		/*
 			Redraw the chart
 		*/
-		var wasBargrid = g.isBargrid();
-
+		
 		//group the series by their type
 		this.seriesByType(this.splitSeriesByType(this.series()));
 		this.updateGraphPropertiesBasedOnSeriesType(this, this.seriesByType());
